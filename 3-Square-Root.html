@@ -1,0 +1,55 @@
+// var n = 20
+
+// var res  = Math.sqrt(n);
+
+// console.log(res)
+
+
+// function sqrt(number){
+// if(number < 0) return NaN
+
+// let guess = number/2 // 20/2 = 10 // Initial guess
+// let precision = 0.00001 // Precision level
+
+//  while (Math.abs(guess*guess-number) > precision){
+//     guess = (guess+number/guess)/2
+//  }
+//  return guess
+// }
+
+// var n = 20;
+
+
+// var  res = sqrt(n)
+// console.log(res)
+
+<script>
+
+
+function sqrt(number) {
+    if (number < 0) return NaN; // Square root of a negative number is not defined
+    if (number === 0 || number === 1) return number; // Square root of 0 or 1 is the number itself
+  
+    let start = 0;
+    let end = number;
+    let mid;
+  
+    while (end - start > 0.00001) { // Precision level
+      mid = (start + end) / 2;
+  
+      if (mid * mid === number) {
+        return mid; // Perfect square
+      } else if (mid * mid < number) {
+        start = mid; // Move start to mid if mid squared is less than the number
+      } else {
+        end = mid; // Move end to mid if mid squared is greater than the number
+      }
+    }
+  
+    return mid;
+  }
+  
+  var n = 16;
+  var res = sqrt(n);
+  console.log(res);
+  </script>
